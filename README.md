@@ -9,3 +9,8 @@
 | Radarr | A fork of Sonarr to work with movies à la Couchpotato | https://docs.linuxserver.io/images/docker-radarr |
 | Overseerr | A free and open source software application for managing requests for your media library. It integrates with your existing services, such as Sonarr, Radarr, and Plex | https://hub.docker.com/r/sctx/overseerr |
 | Gluetun | Lightweight Swiss-knife VPN client to connect to several VPN providers | https://hub.docker.com/r/qmcgaw/gluetun |
+
+## Also used
+
+| Name | Summary of what it does | Link |
+| Orbstack | a fast, light, and simple way to run containers and Linux machines. It's a supercharged alternative to Docker Desktop and WSL, all in one easy-to-use app | https://docs.orbstack.dev/ |
