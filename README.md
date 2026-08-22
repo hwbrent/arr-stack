@@ -3,6 +3,7 @@
 ## What's in the stack
 
 | Name | Summary of what it does | Link |
+| - | - | - |
 | Plex Media Server | Organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices | https://docs.linuxserver.io/images/docker-plex/ |
 | Jackett | Works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps | https://docs.linuxserver.io/images/docker-jackett/ |
 | Sonarr | A PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available | https://docs.linuxserver.io/images/docker-sonarr |
@@ -13,4 +14,5 @@
 ## Also used
 
 | Name | Summary of what it does | Link |
+| - | - | - |
 | Orbstack | a fast, light, and simple way to run containers and Linux machines. It's a supercharged alternative to Docker Desktop and WSL, all in one easy-to-use app | https://docs.orbstack.dev/ |
