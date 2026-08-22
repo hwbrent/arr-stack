@@ -71,17 +71,38 @@ services:
       - 8989:8989
     restart: unless-stopped
 
-  overseerr:
-    image: sctx/overseerr
-    container_name: overseerr
+  # https://docs.seerr.dev/getting-started/docker/?docker-methods=docker-compose
+  seerr:
+    image: ghcr.io/seerr-team/seerr:latest
+    init: true
+    container_name: seerr
     environment:
-      - LOG_LEVEL=info
-      - TZ=Etc/UTC
-    volumes:
-      - ./overseerr/config:/app/config
+      - LOG_LEVEL=debug
+      - TZ=Asia/Tashkent
+      - PORT=5055 #optional
     ports:
       - 5055:5055
+    volumes:
+      - /path/to/appdata/config:/app/config
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5055/api/v1/settings/public || exit 1
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      retries: 3
     restart: unless-stopped
+
+  # overseerr:
+  #   image: sctx/overseerr
+  #   container_name: overseerr
+  #   environment:
+  #     - LOG_LEVEL=info
+  #     - TZ=Etc/UTC
+  #   volumes:
+  #     - ./overseerr/config:/app/config
+  #   ports:
+  #     - 5055:5055
+  #   restart: unless-stopped
 
   # https://support.plex.tv/articles/200288586-installation/
   # ^ this tells you to use a different image which apparently is crap
