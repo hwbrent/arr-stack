@@ -1,8 +1,11 @@
 version: "3.8"
 
 services:
+  # https://hub.docker.com/r/qmcgaw/gluetun#setup
   gluetun:
     # https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/expressvpn.md
+    # https://www.expressvpn.com/support/vpn-setup/manual-config-for-windows-with-openvpn/
+    # https://www.acciyo.com/your-guide-to-expressvpn-openvpn-configuration-a-step-by-step-walkthrough/
     image: qmcgaw/gluetun
     container_name: gluetun
     cap_add:
@@ -18,7 +21,9 @@ services:
       - 9117:9117   # Jackett UI, exposed via gluetun's network
     restart: unless-stopped
 
+  # https://github.com/Jackett/Jackett#docker-installation
   jackett:
+    # https://hub.docker.com/r/linuxserver/jackett/#usage
     image: linuxserver/jackett
     container_name: jackett
     network_mode: "service:gluetun"   # routes all Jackett traffic through the VPN
@@ -32,7 +37,9 @@ services:
       - ./jackett/config:/config
     restart: unless-stopped
 
+  # https://wiki.servarr.com/radarr/installation/docker
   radarr:
+    # https://docs.linuxserver.io/images/docker-radarr
     image: linuxserver/radarr
     container_name: radarr
     environment:
@@ -47,7 +54,9 @@ services:
       - 7878:7878
     restart: unless-stopped
 
+  # https://wiki.servarr.com/sonarr/installation/docker
   sonarr:
+    # https://docs.linuxserver.io/images/docker-sonarr/
     image: linuxserver/sonarr
     container_name: sonarr
     environment:
@@ -74,7 +83,10 @@ services:
       - 5055:5055
     restart: unless-stopped
 
+  # https://support.plex.tv/articles/200288586-installation/
+  # ^ this tells you to use a different image which apparently is crap
   plex:
+    # https://docs.linuxserver.io/images/docker-plex/#usage
     image: linuxserver/plex
     container_name: plex
     network_mode: host   # Plex works best on host networking for local discovery
