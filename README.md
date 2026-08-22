@@ -17,3 +17,4 @@
 | Name | Summary of what it does | Link |
 | - | - | - |
 | Orbstack | a fast, light, and simple way to run containers and Linux machines. It's a supercharged alternative to Docker Desktop and WSL, all in one easy-to-use app | https://docs.orbstack.dev/ |
+| qBittorrent | Cross-platform free and open-source BitTorrent client | https://www.qbittorrent.org/ |
