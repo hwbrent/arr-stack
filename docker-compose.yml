@@ -28,7 +28,7 @@ services:
   # https://github.com/Jackett/Jackett#docker-installation
   jackett:
     # https://hub.docker.com/r/linuxserver/jackett/#usage
-    image: linuxserver/jackett
+    image: lscr.io/linuxserver/jackett:latest
     container_name: jackett
     network_mode: "service:gluetun"   # routes all Jackett traffic through the VPN
     depends_on:
@@ -42,7 +42,7 @@ services:
   # https://wiki.servarr.com/radarr/installation/docker
   radarr:
     # https://docs.linuxserver.io/images/docker-radarr
-    image: linuxserver/radarr
+    image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     env-file:
       - ./public.env
@@ -57,7 +57,7 @@ services:
   # https://wiki.servarr.com/sonarr/installation/docker
   sonarr:
     # https://docs.linuxserver.io/images/docker-sonarr/
-    image: linuxserver/sonarr
+    image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     env-file:
       - ./public.env
@@ -105,7 +105,7 @@ services:
   # ^ this tells you to use a different image which apparently is crap
   plex:
     # https://docs.linuxserver.io/images/docker-plex/#usage
-    image: linuxserver/plex
+    image: lscr.io/linuxserver/plex:latest
     container_name: plex
     network_mode: host   # Plex works best on host networking for local discovery
     environment:
