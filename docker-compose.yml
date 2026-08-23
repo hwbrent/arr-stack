@@ -116,7 +116,6 @@ services:
     # https://docs.linuxserver.io/images/docker-plex/#usage
     image: lscr.io/linuxserver/plex:latest
     container_name: plex
-    network_mode: host   # Plex works best on host networking for local discovery
     environment:
       - VERSION=docker
     env_file:
@@ -125,6 +124,8 @@ services:
       - ./data/plex:/config
       - "/Volumes/Misc/Plex/Movies:/movies"
       - "/Volumes/Misc/Plex/TV Shows:/tv"
+    ports:
+      - 32400:32400/tcp
     restart: unless-stopped
 
   # https://hub.docker.com/r/linuxserver/qbittorrent/#docker-compose-recommended-click-here-for-more-info
