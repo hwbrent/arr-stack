@@ -30,7 +30,7 @@ services:
     # https://hub.docker.com/r/linuxserver/jackett/#usage
     image: lscr.io/linuxserver/jackett:latest
     container_name: jackett
-    network_mode: "service:gluetun"   # routes all Jackett traffic through the VPN
+    network_mode: "container:gluetun"   # routes all Jackett traffic through the VPN
     depends_on:
       - gluetun
     env-file:
