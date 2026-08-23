@@ -62,9 +62,9 @@ services:
     env-file:
       - ./public.env
     volumes:
-      - ./sonarr/config:/config
-      - ./media/tv:/tv
-      - ./downloads:/downloads
+      - /path/to/sonarr/data:/config
+      - /path/to/tvseries:/tv #optional
+      - /path/to/downloadclient-downloads:/downloads #optional
     ports:
       - 8989:8989
     restart: unless-stopped
