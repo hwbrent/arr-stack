@@ -33,8 +33,6 @@ services:
     network_mode: "service:gluetun"   # routes all Jackett traffic through the VPN
     depends_on:
       - gluetun
-    environment:
-      - TZ=Etc/UTC
     env-file:
       - ./public.env
     volumes:
@@ -46,8 +44,6 @@ services:
     # https://docs.linuxserver.io/images/docker-radarr
     image: linuxserver/radarr
     container_name: radarr
-    environment:
-      - TZ=Etc/UTC
     env-file:
       - ./public.env
     volumes:
@@ -63,8 +59,6 @@ services:
     # https://docs.linuxserver.io/images/docker-sonarr/
     image: linuxserver/sonarr
     container_name: sonarr
-    environment:
-      - TZ=Etc/UTC
     env-file:
       - ./public.env
     volumes:
@@ -82,8 +76,9 @@ services:
     container_name: seerr
     environment:
       - LOG_LEVEL=debug
-      - TZ=Asia/Tashkent
       - PORT=5055 #optional
+    env-file:
+      - ./public.env
     ports:
       - 5055:5055
     volumes:
@@ -101,7 +96,6 @@ services:
   #   container_name: overseerr
   #   environment:
   #     - LOG_LEVEL=info
-  #     - TZ=Etc/UTC
   #   volumes:
   #     - ./overseerr/config:/app/config
   #   ports:
@@ -116,7 +110,6 @@ services:
     container_name: plex
     network_mode: host   # Plex works best on host networking for local discovery
     environment:
-      - TZ=Etc/UTC
       - VERSION=docker
     env-file:
       - ./public.env
