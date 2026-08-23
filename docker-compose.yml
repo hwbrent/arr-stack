@@ -27,6 +27,7 @@ services:
       - ./data/gluetun:/gluetun
     ports:
       - 9117:9117   # Jackett UI, exposed via gluetun's network
+      - 8080:8080   # qBittorrent UI
     restart: unless-stopped
 
   # https://github.com/Jackett/Jackett#docker-installation
