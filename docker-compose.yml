@@ -19,7 +19,7 @@ services:
       - FIREWALL_DROP_LOCAL_LAN=true
       - FIREWALL_LIMIT_VLAN_SUBNET=true # Optional: Blocks traffic to your local network if needed
       - HEALTH_CHECK_ENABLED=true
-      - HEALTH_CHECK_PORT=8080
+      - HEALTH_CHECK_PORT=9999
     env_file:
       - ./private.env
     volumes:
