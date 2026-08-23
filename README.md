@@ -8,9 +8,9 @@
 | Jackett | Works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps | https://docs.linuxserver.io/images/docker-jackett/ |
 | Radarr | A fork of Sonarr to work with movies à la Couchpotato | https://docs.linuxserver.io/images/docker-radarr |
 | Sonarr | A PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available | https://docs.linuxserver.io/images/docker-sonarr |
-<!-- | Overseerr | A free and open source software application for managing requests for your media library. It integrates with your existing services, such as Sonarr, Radarr, and Plex | https://hub.docker.com/r/sctx/overseerr | -->
 | Seerr | Seerr is a free and open source software application for managing requests for your media library. It integrates with the media server of your choice: Jellyfin, Plex, and Emby. In addition, it integrates with your existing services, such as Sonarr, Radarr. The successor of Overseer+Jellyseer | https://docs.seerr.dev/getting-started/docker/?docker-methods=docker-compose |
 | Plex Media Server | Organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices | https://docs.linuxserver.io/images/docker-plex/ |
+<!-- | Overseerr | A free and open source software application for managing requests for your media library. It integrates with your existing services, such as Sonarr, Radarr, and Plex | https://hub.docker.com/r/sctx/overseerr | -->
 
 ## Also used
 
