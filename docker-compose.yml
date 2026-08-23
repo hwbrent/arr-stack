@@ -16,7 +16,8 @@ services:
     environment:
       - VPN_SERVICE_PROVIDER="expressvpn"
       - EXPRESSVPN_SERVER_LOCATION="my_expressvpn_ireland_udp"
-    env-file: ".env"
+    env-file:
+      - ./private.env
     volumes:
       - ./expressvpn-configs:/gluetun/openvpn/ # Mount your custom configs here
       - ./gluetun-data:/gluetun # Persist Gluetun settings
