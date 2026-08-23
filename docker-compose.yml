@@ -113,7 +113,7 @@ services:
     env-file:
       - ./public.env
     volumes:
-      - ./plex/config:/config
-      - ./media/movies:/movies
-      - ./media/tv:/tv
+      - /path/to/plex/library:/config
+      - /path/to/tvseries:/tv
+      - /path/to/movies:/movies
     restart: unless-stopped
