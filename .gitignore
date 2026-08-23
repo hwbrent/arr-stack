@@ -1,2 +1,6 @@
 private.env
 *.ovpn
+
+# App config/state (contains DBs, API keys, session tokens, etc.)
+data
+!data/**/.gitkeep
