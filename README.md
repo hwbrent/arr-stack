@@ -10,6 +10,7 @@
 | Sonarr | A PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available | https://docs.linuxserver.io/images/docker-sonarr |
 | Seerr | Seerr is a free and open source software application for managing requests for your media library. It integrates with the media server of your choice: Jellyfin, Plex, and Emby. In addition, it integrates with your existing services, such as Sonarr, Radarr. The successor of Overseer+Jellyseer | https://docs.seerr.dev/getting-started/docker/?docker-methods=docker-compose |
 | Plex Media Server | Organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices | https://docs.linuxserver.io/images/docker-plex/ |
+| qBittorrent | Cross-platform free and open-source BitTorrent client | https://hub.docker.com/r/linuxserver/qbittorrent |
 <!-- | Overseerr | A free and open source software application for managing requests for your media library. It integrates with your existing services, such as Sonarr, Radarr, and Plex | https://hub.docker.com/r/sctx/overseerr | -->
 
 ## Also used
@@ -17,4 +18,3 @@
 | Name | Summary of what it does | Link |
 | - | - | - |
 | Orbstack | a fast, light, and simple way to run containers and Linux machines. It's a supercharged alternative to Docker Desktop and WSL, all in one easy-to-use app | https://docs.orbstack.dev/ |
-| qBittorrent | Cross-platform free and open-source BitTorrent client | https://www.qbittorrent.org/ |
