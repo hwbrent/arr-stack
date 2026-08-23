@@ -47,9 +47,9 @@ services:
     env-file:
       - ./public.env
     volumes:
-      - ./radarr/config:/config
-      - ./media/movies:/movies
-      - ./downloads:/downloads
+      - /path/to/radarr/data:/config
+      - /path/to/movies:/movies #optional
+      - /path/to/download-client-downloads:/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
