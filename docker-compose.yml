@@ -14,8 +14,8 @@ services:
     devices:
       - /dev/net/tun:/dev/net/tun
     environment:
-      - VPN_SERVICE_PROVIDER="expressvpn"
-      - EXPRESSVPN_SERVER_LOCATION="my_expressvpn_ireland_udp"
+      - VPN_SERVICE_PROVIDER=expressvpn
+      - EXPRESSVPN_SERVER_LOCATION=my_expressvpn_ireland_udp
     env_file:
       - ./private.env
     volumes:
