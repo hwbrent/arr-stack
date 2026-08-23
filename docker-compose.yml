@@ -16,7 +16,7 @@ services:
     environment:
       - VPN_SERVICE_PROVIDER="expressvpn"
       - EXPRESSVPN_SERVER_LOCATION="my_expressvpn_ireland_udp"
-    env-file:
+    env_file:
       - ./private.env
     volumes:
       - ./expressvpn-configs:/gluetun/openvpn/ # Mount your custom configs here
@@ -33,7 +33,7 @@ services:
     network_mode: "container:gluetun"   # routes all Jackett traffic through the VPN
     depends_on:
       - gluetun
-    env-file:
+    env_file:
       - ./public.env
     volumes:
       - /path/to/jackett/data:/config
@@ -45,7 +45,7 @@ services:
     # https://docs.linuxserver.io/images/docker-radarr
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
-    env-file:
+    env_file:
       - ./public.env
     volumes:
       - /path/to/radarr/data:/config
@@ -60,7 +60,7 @@ services:
     # https://docs.linuxserver.io/images/docker-sonarr/
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
-    env-file:
+    env_file:
       - ./public.env
     volumes:
       - /path/to/sonarr/data:/config
@@ -77,7 +77,7 @@ services:
     container_name: seerr
     environment:
       - LOG_LEVEL=debug
-    env-file:
+    env_file:
       - ./public.env
     ports:
       - 5055:5055
@@ -111,7 +111,7 @@ services:
     network_mode: host   # Plex works best on host networking for local discovery
     environment:
       - VERSION=docker
-    env-file:
+    env_file:
       - ./public.env
     volumes:
       - /path/to/plex/library:/config
