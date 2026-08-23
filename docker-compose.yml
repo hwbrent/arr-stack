@@ -36,7 +36,8 @@ services:
     env-file:
       - ./public.env
     volumes:
-      - ./jackett/config:/config
+      - /path/to/jackett/data:/config
+      - /path/to/blackhole:/downloads
     restart: unless-stopped
 
   # https://wiki.servarr.com/radarr/installation/docker
