@@ -6,6 +6,7 @@ services:
     # https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/expressvpn.md
     # https://www.expressvpn.com/support/vpn-setup/manual-config-for-windows-with-openvpn/
     # https://www.acciyo.com/your-guide-to-expressvpn-openvpn-configuration-a-step-by-step-walkthrough/
+    # https://www.acciyo.com/expressvpn-gluetun-your-ultimate-guide-to-secure-self-hosted-docker-containers/
     image: qmcgaw/gluetun
     container_name: gluetun
     cap_add:
