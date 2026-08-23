@@ -34,9 +34,9 @@ services:
     depends_on:
       - gluetun
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Etc/UTC
+    env-file:
+      - ./public.env
     volumes:
       - ./jackett/config:/config
     restart: unless-stopped
@@ -47,9 +47,9 @@ services:
     image: linuxserver/radarr
     container_name: radarr
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Etc/UTC
+    env-file:
+      - ./public.env
     volumes:
       - ./radarr/config:/config
       - ./media/movies:/movies
@@ -64,9 +64,9 @@ services:
     image: linuxserver/sonarr
     container_name: sonarr
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Etc/UTC
+    env-file:
+      - ./public.env
     volumes:
       - ./sonarr/config:/config
       - ./media/tv:/tv
@@ -116,10 +116,10 @@ services:
     container_name: plex
     network_mode: host   # Plex works best on host networking for local discovery
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Etc/UTC
       - VERSION=docker
+    env-file:
+      - ./public.env
     volumes:
       - ./plex/config:/config
       - ./media/movies:/movies
