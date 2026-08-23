@@ -16,6 +16,8 @@ services:
     environment:
       - VPN_SERVICE_PROVIDER=expressvpn
       - EXPRESSVPN_SERVER_LOCATION=my_expressvpn_ireland_udp
+      - FIREWALL_DROP_LOCAL_LAN=true
+      - FIREWALL_LIMIT_VLAN_SUBNET=true # Optional: Blocks traffic to your local network if needed
     env_file:
       - ./private.env
     volumes:
