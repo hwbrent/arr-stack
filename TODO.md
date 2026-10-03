@@ -15,8 +15,8 @@ Useful commands:
 - [x] Trim `docker-compose.yml` down to nothing, ready to add services one by one
 
 ### 1. Plex (alone)
-- [ ] Add only the Plex service, mounting just the media folders
-- [ ] Add libraries (Movies, TV Shows)
+- [x] Add only the Plex service, mounting just the media folders
+- [x] Add libraries (Movies, TV Shows)
 - [ ] **Check:** something plays locally at `http://<mac-ip>:32400/web`
 - Note: macOS containers still sit behind a VM, so Plex's local discovery/DLNA may not work. Direct access on port 32400 is enough. (OrbStack also gives containers local domains like `plex.orb.local`, handy for testing from the Mac, but other devices on your LAN need the Mac's IP and the published port.)
 

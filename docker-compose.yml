@@ -1,0 +1,16 @@
+services:
+  plex:
+    # https://docs.linuxserver.io/images/docker-plex/#usage
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    environment:
+      - VERSION=docker
+    env_file:
+      - ./public.env
+    volumes:
+      - ./data/plex:/config
+      - "/Volumes/Misc/Plex/Movies:/movies"
+      - "/Volumes/Misc/Plex/TV Shows:/tv"
+    ports:
+      - 32400:32400/tcp
+    restart: unless-stopped
