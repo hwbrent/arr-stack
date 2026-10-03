@@ -10,14 +10,14 @@ Useful commands:
 
 ### 0. Prep
 - [ ] Create a minimal `public.env` (`PUID`, `PGID`, `TZ`)
-- [ ] Give Docker Desktop file-sharing access to `/Volumes/Misc` (otherwise bind mounts silently come up empty on macOS)
+- [ ] Make sure OrbStack can read `/Volumes/Misc` (macOS may prompt for removable-volume access; if not, grant it in System Settings > Privacy & Security > Files and Folders / Full Disk Access). Check with `docker run --rm -v /Volumes/Misc/Plex:/test alpine ls /test`, which should list your media folders, not come up empty.
 - [ ] Trim `docker-compose.yml` down to nothing, ready to add services one by one
 
 ### 1. Plex (alone)
 - [ ] Add only the Plex service, mounting just the media folders
 - [ ] Add libraries (Movies, TV Shows)
 - [ ] **Check:** something plays locally at `http://<mac-ip>:32400/web`
-- Note: Docker Desktop on macOS has no host networking, so local discovery/DLNA are limited. Direct access on port 32400 is enough.
+- Note: macOS containers still sit behind a VM, so Plex's local discovery/DLNA may not work. Direct access on port 32400 is enough. (OrbStack also gives containers local domains like `plex.orb.local`, handy for testing from the Mac, but other devices on your LAN need the Mac's IP and the published port.)
 
 ### 2. Gluetun (alone)
 - [ ] Add only gluetun and check logs for a successful VPN connection and healthy status
@@ -53,3 +53,4 @@ Useful commands:
 ### Troubleshooting notes
 - Anything sharing gluetun's network is reached via the hostname `gluetun`; other containers use their own container names.
 - Second most common problem: mismatched volume paths between the downloader and Radarr/Sonarr.
+- OrbStack: `orb.local` domains and container IPs work from the Mac only, not from other devices. Use `<mac-ip>:<port>` from phones, TVs and other machines.
