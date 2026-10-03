@@ -12,7 +12,7 @@ Useful commands:
 - [x] Create a minimal `public.env` (`PUID`, `PGID`, `TZ`)
 - [x] Make sure OrbStack can read `/Volumes/Misc` (macOS may prompt for removable-volume access; if not, grant it in System Settings > Privacy & Security > Files and Folders / Full Disk Access). Check with `docker run --rm -v /Volumes/Misc/Plex:/test alpine ls /test`, which should list your media folders, not come up empty.
     - "I think it has access? In Settings in 'Files and Folders' it has 'Documents Folder' and 'Removable Volumes' checked"
-- [ ] Trim `docker-compose.yml` down to nothing, ready to add services one by one
+- [x] Trim `docker-compose.yml` down to nothing, ready to add services one by one
 
 ### 1. Plex (alone)
 - [ ] Add only the Plex service, mounting just the media folders
