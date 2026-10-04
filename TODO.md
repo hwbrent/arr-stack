@@ -32,8 +32,8 @@ Useful commands:
 - Note: this is where the ExpressVPN config is most likely to break, so get it solid first.
 
 ### 3. qBittorrent (behind gluetun)
-- [ ] Add qBittorrent with `network_mode: "container:gluetun"`
-- [ ] **Check:** UI loads on `:8080` (temporary password is in the logs) and its public IP is the VPN's
+- [x] Add qBittorrent with `network_mode: "container:gluetun"`
+- [x] **Check:** UI loads on `:8080` (temporary password is in the logs) and its public IP is the VPN's
 - [ ] Set default save path to `/downloads`
 - [ ] Test with a legal torrent (e.g. a Linux ISO)
 - [ ] **Kill-switch test:** stop gluetun and confirm qBittorrent loses all connectivity
