@@ -26,7 +26,7 @@ Useful commands:
 - Note: macOS containers still sit behind a VM, so Plex's local discovery/DLNA may not work. Direct access on port 32400 is enough. (OrbStack also gives containers local domains like `plex.orb.local`, handy for testing from the Mac, but other devices on your LAN need the Mac's IP and the published port.)
 
 ### 2. Gluetun (alone)
-- [ ] Add only gluetun and check logs for a successful VPN connection and healthy status
+- [x] Add only gluetun and check logs for a successful VPN connection and healthy status
 - [ ] Replace `FIREWALL_DROP_LOCAL_LAN` with `FIREWALL_OUTBOUND_SUBNETS` (e.g. `192.168.1.0/24`) so the LAN can reach the UIs
 - [ ] **Check:** `docker run --rm --network container:gluetun alpine wget -qO- https://ifconfig.io` shows an Irish VPN IP, not your home IP
 - Note: this is where the ExpressVPN config is most likely to break, so get it solid first.
