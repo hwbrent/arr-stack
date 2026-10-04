@@ -35,7 +35,7 @@ services:
       - ./expressvpn-configs:/gluetun/openvpn/
       - ./data/gluetun:/gluetun
     ports:
-      - 9117:9117 # Jackett UI
+      - 9696:9696 # Prowlarr UI
       - 8080:8080 # qBittorrent UI
       - 6881:6881 # qBittorrent torrenting (TCP)
       - 6881:6881/udp # qBittorrent torrenting (UDP)
@@ -91,4 +91,18 @@ services:
       - "/Volumes/Misc/Plex/downloads:/downloads"
     ports:
       - 8989:8989
+    restart: unless-stopped
+
+  prowlarr:
+    # Image: https://docs.linuxserver.io/images/docker-prowlarr/
+    # Wiki: https://wiki.servarr.com/prowlarr/installation/docker
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    network_mode: "container:gluetun"
+    depends_on:
+      - gluetun
+    env_file:
+      - ./public.env
+    volumes:
+      - ./data/sonarr:/config
     restart: unless-stopped
