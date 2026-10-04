@@ -4,6 +4,8 @@
 
 Build one service at a time. Don't move on until the check passes.
 
+Scope: personal use on my own network only. No remote access / port forwarding for now.
+
 Useful commands:
 - Start a service: `docker compose up -d <service>`
 - Watch logs: `docker compose logs -f <service>`
@@ -17,8 +19,10 @@ Useful commands:
 ### 1. Plex (alone)
 - [x] Add only the Plex service, mounting just the media folders
 - [x] Add libraries (Movies, TV Shows)
-- [x] **Check:** something plays locally at `http://<mac-ip>:32400/web`
-    - It doesn't work if on the mac itself you do `http://192.0.0.1:32400/`, but if you do `http://localhost:32400` it works, so that's a win I guess?
+- [x] **Check:** something plays locally at `http://localhost:32400/web` on the Mac
+    - `http://192.0.0.1:32400` fails because that isn't the Mac's address, so this is expected
+- [ ] In Plex Settings > Remote Access, make sure remote access is **disabled** (local-only for now)
+- [ ] **Check:** plays from another device on the home network (phone/TV) at `http://<mac-lan-ip>:32400/web`
 - Note: macOS containers still sit behind a VM, so Plex's local discovery/DLNA may not work. Direct access on port 32400 is enough. (OrbStack also gives containers local domains like `plex.orb.local`, handy for testing from the Mac, but other devices on your LAN need the Mac's IP and the published port.)
 
 ### 2. Gluetun (alone)
@@ -45,12 +49,19 @@ Useful commands:
 - [ ] Add Jackett behind gluetun (consider Prowlarr instead, since it syncs indexers to Radarr/Sonarr automatically)
 - [ ] Add one indexer
 - [ ] In Radarr/Sonarr, use `http://gluetun:9117/...` as the Torznab URL
-- [ ] **Check:** manual search in Radarr, send a result to qBittorrent, watch it download and import
+- [ ] **Check:** manual search in Radarr, send a result to qBittorrent, watch it download and import in Plex
 
-### 6. Seerr (last)
+### 6. Seerr (optional)
+Only worth it if other people will make requests. For just me, Radarr/Sonarr directly are enough.
 - [ ] Add Seerr
 - [ ] Connect to Plex, then Radarr and Sonarr
 - [ ] **Check:** request something and confirm it flows all the way through to Plex
+
+### Later / maybe
+- [ ] Remote access to Plex for others (port forwarding or a VPN like Tailscale)
+### Later / maybe
+- [ ] Reach Plex away from home via Tailscale (no Remote Access needed): add `100.64.0.0/10` to Plex's LAN Networks and the Tailscale address to Custom server access URLs
+- [ ] If gluetun-routed UIs don't load over Tailscale, add `100.64.0.0/10` to `FIREWALL_OUTBOUND_SUBNETS`
 
 ### Troubleshooting notes
 - Anything sharing gluetun's network is reached via the hostname `gluetun`; other containers use their own container names.
