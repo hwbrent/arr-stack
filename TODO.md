@@ -45,10 +45,14 @@ Useful commands:
 - [x] **Check:** the "Test" button passes
 - [x] **Check:** Radarr/Sonarr and qBittorrent both mount `/downloads` so paths line up (mismatches cause "import failed" errors)
 
-### 5. Jackett (or Prowlarr)
-- [ ] Add Jackett behind gluetun (consider Prowlarr instead, since it syncs indexers to Radarr/Sonarr automatically)
-- [ ] Add one indexer
-- [ ] In Radarr/Sonarr, use `http://gluetun:9117/...` as the Torznab URL
+### 5. Prowlarr
+- [ ] Add Prowlarr with `network_mode: "container:gluetun"` (config volume `./data/prowlarr:/config`)
+- [ ] Publish port `9696:9696` on the **gluetun** service (not on Prowlarr, since it shares gluetun's network)
+- [ ] **Check:** UI loads at `http://localhost:9696`
+- [ ] Add one indexer in Prowlarr and run its Test
+- [ ] In Prowlarr > Settings > Apps, add Radarr and Sonarr (Prowlarr server: `http://localhost:9696`, Radarr: `http://radarr:7878`, Sonarr: `http://sonarr:8989`, plus each app's API key)
+    - If Prowlarr can't reach `radarr`/`sonarr` by name (gluetun uses its own DNS), try `host.docker.internal` or the container IPs instead
+- [ ] **Check:** the indexer appears in Radarr/Sonarr under Settings > Indexers after syncing
 - [ ] **Check:** manual search in Radarr, send a result to qBittorrent, watch it download and import in Plex
 
 ### 6. Seerr (optional)
@@ -63,6 +67,7 @@ Only worth it if other people will make requests. For just me, Radarr/Sonarr dir
 - [ ] If gluetun-routed UIs don't load over Tailscale, add `100.64.0.0/10` to `FIREWALL_OUTBOUND_SUBNETS`
 
 ### Troubleshooting notes
-- Anything sharing gluetun's network is reached via the hostname `gluetun`; other containers use their own container names.
+- Anything sharing gluetun's network (qBittorrent, Prowlarr) is reached via the hostname `gluetun`; other containers use their own container names.
+- Containers sharing gluetun's network may not resolve other container names; use `host.docker.internal` or container IPs if so.
 - Second most common problem: mismatched volume paths between the downloader and Radarr/Sonarr.
 - OrbStack: `orb.local` domains and container IPs work from the Mac only, not from other devices. Use `<mac-ip>:<port>` from phones, TVs and other machines.
