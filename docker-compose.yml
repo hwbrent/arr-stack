@@ -56,9 +56,5 @@ services:
     volumes:
       - ./data/qbittorrent:/config
       - "/Volumes/Misc/Plex/downloads:/downloads"
-    ports:
-      - 8080:8080 # UI
-      - 6881:6881 # torrenting (TCP)
-      - 6881:6881/udp # torrenting (UDP)
     stop_grace_period: "10s" # optional
     restart: unless-stopped
