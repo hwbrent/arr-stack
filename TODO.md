@@ -42,7 +42,7 @@ Useful commands:
 - [x] Add Radarr, then Sonarr
 - [ ] Add qBittorrent as a download client (host: `gluetun`, port: `8080`)
 - [x] Add root folders (`/movies`, `/tv`)
-- [ ] **Check:** the "Test" button passes
+- [x] **Check:** the "Test" button passes
 - [ ] **Check:** Radarr/Sonarr and qBittorrent both mount `/downloads` so paths line up (mismatches cause "import failed" errors)
 
 ### 5. Jackett (or Prowlarr)
