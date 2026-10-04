@@ -77,3 +77,18 @@ services:
     ports:
       - 7878:7878
     restart: unless-stopped
+
+  sonarr:
+    # Image: https://docs.linuxserver.io/images/docker-sonarr/
+    # Wiki: https://wiki.servarr.com/sonarr/installation/docker
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    env_file:
+      - ./public.env
+    volumes:
+      - ./data/sonarr:/config
+      - "/Volumes/Misc/Plex/TV Shows:/tv"
+      - "/Volumes/Misc/Plex/downloads:/downloads"
+    ports:
+      - 8989:8989
+    restart: unless-stopped
