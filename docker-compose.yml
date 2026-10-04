@@ -16,6 +16,8 @@ services:
     restart: unless-stopped
 
   gluetun:
+    # Image: https://hub.docker.com/r/qmcgaw/gluetun
+    # Wiki: https://github.com/qdm12/gluetun-wiki#gluetun-wiki
     image: qmcgaw/gluetun
     container_name: gluetun
     cap_add:
