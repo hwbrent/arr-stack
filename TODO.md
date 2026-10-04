@@ -34,7 +34,7 @@ Useful commands:
 ### 3. qBittorrent (behind gluetun)
 - [x] Add qBittorrent with `network_mode: "container:gluetun"`
 - [x] **Check:** UI loads on `:8080` (temporary password is in the logs) and its public IP is the VPN's
-- [ ] Set default save path to `/downloads`
+- [x] Set default save path to `/downloads`
 - [ ] Test with a legal torrent (e.g. a Linux ISO)
 - [ ] **Kill-switch test:** stop gluetun and confirm qBittorrent loses all connectivity
 
