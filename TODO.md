@@ -17,7 +17,8 @@ Useful commands:
 ### 1. Plex (alone)
 - [x] Add only the Plex service, mounting just the media folders
 - [x] Add libraries (Movies, TV Shows)
-- [ ] **Check:** something plays locally at `http://<mac-ip>:32400/web`
+- [x] **Check:** something plays locally at `http://<mac-ip>:32400/web`
+    - It doesn't work if on the mac itself you do `http://192.0.0.1:32400/`, but if you do `http://localhost:32400` it works, so that's a win I guess?
 - Note: macOS containers still sit behind a VM, so Plex's local discovery/DLNA may not work. Direct access on port 32400 is enough. (OrbStack also gives containers local domains like `plex.orb.local`, handy for testing from the Mac, but other devices on your LAN need the Mac's IP and the published port.)
 
 ### 2. Gluetun (alone)
