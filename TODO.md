@@ -39,9 +39,9 @@ Useful commands:
 - [3] **Kill-switch test:** stop gluetun and confirm qBittorrent loses all connectivity
 
 ### 4. Radarr, then Sonarr
-- [ ] Add Radarr, then Sonarr
+- [x] Add Radarr, then Sonarr
 - [ ] Add qBittorrent as a download client (host: `gluetun`, port: `8080`)
-- [ ] Add root folders (`/movies`, `/tv`)
+- [x] Add root folders (`/movies`, `/tv`)
 - [ ] **Check:** the "Test" button passes
 - [ ] **Check:** Radarr/Sonarr and qBittorrent both mount `/downloads` so paths line up (mismatches cause "import failed" errors)
 
