@@ -36,7 +36,7 @@ Useful commands:
 - [x] **Check:** UI loads on `:8080` (temporary password is in the logs) and its public IP is the VPN's
 - [x] Set default save path to `/downloads`
 - [ ] Test with a legal torrent (e.g. a Linux ISO)
-- [3] **Kill-switch test:** stop gluetun and confirm qBittorrent loses all connectivity
+- [x] **Kill-switch test:** stop gluetun and confirm qBittorrent loses all connectivity
 
 ### 4. Radarr, then Sonarr
 - [x] Add Radarr, then Sonarr
