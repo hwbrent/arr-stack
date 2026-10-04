@@ -62,3 +62,18 @@ services:
       - "/Volumes/Misc/Plex/TV Shows:/Volumes/Misc/Plex/TV Shows"
     stop_grace_period: "10s" # optional
     restart: unless-stopped
+
+  radarr:
+    # Image: https://docs.linuxserver.io/images/docker-radarr
+    # Wiki: https://wiki.servarr.com/radarr/installation/docker
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    env_file:
+      - ./public.env
+    volumes:
+      - ./data/radarr:/config
+      - "/Volumes/Misc/Plex/Movies:/movies"
+      - "/Volumes/Misc/Plex/downloads:/downloads"
+    ports:
+      - 7878:7878
+    restart: unless-stopped
