@@ -48,7 +48,7 @@ Useful commands:
 ### 5. Prowlarr
 - [x] Add Prowlarr with `network_mode: "container:gluetun"` (config volume `./data/prowlarr:/config`)
 - [x] Publish port `9696:9696` on the **gluetun** service (not on Prowlarr, since it shares gluetun's network)
-- [ ] **Check:** UI loads at `http://localhost:9696`
+- [x] **Check:** UI loads at `http://localhost:9696`
 - [ ] Add one indexer in Prowlarr and run its Test
 - [ ] In Prowlarr > Settings > Apps, add Radarr and Sonarr (Prowlarr server: `http://localhost:9696`, Radarr: `http://radarr:7878`, Sonarr: `http://sonarr:8989`, plus each app's API key)
     - If Prowlarr can't reach `radarr`/`sonarr` by name (gluetun uses its own DNS), try `host.docker.internal` or the container IPs instead
