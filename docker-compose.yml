@@ -40,3 +40,25 @@ services:
       - 6881:6881 # qBittorrent torrenting (TCP)
       - 6881:6881/udp # qBittorrent torrenting (UDP)
     restart: unless-stopped
+
+  qbittorrent:
+    # Image: https://hub.docker.com/r/linuxserver/qbittorrent
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    network_mode: "container:gluetun"
+    depends_on:
+      - gluetun
+    environment:
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=6881
+    env_file:
+      - ./public.env
+    volumes:
+      - ./data/qbittorrent:/config
+      - "/Volumes/Misc/Plex/downloads:/downloads"
+    ports:
+      - 8080:8080 # UI
+      - 6881:6881 # torrenting (TCP)
+      - 6881:6881/udp # torrenting (UDP)
+    stop_grace_period: "10s" # optional
+    restart: unless-stopped
