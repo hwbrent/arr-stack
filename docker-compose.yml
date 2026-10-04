@@ -14,3 +14,30 @@ services:
     ports:
       - 32400:32400/tcp
     restart: unless-stopped
+
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - VPN_SERVICE_PROVIDER=expressvpn
+      - EXPRESSVPN_SERVER_LOCATION=my_expressvpn_ireland_udp
+      - HEALTH_CHECK_ENABLED=true
+      - HEALTH_CHECK_PORT=9999
+      # The following aren't mentioned by https://github.com/qdm12/gluetun-wiki/blob/main/setup/options/firewall.md...
+      - FIREWALL_DROP_LOCAL_LAN=true
+      - FIREWALL_LIMIT_VLAN_SUBNET=true # Optional: Blocks traffic to your local network if needed
+    env_file:
+      - ./private.env
+    volumes:
+      - ./expressvpn-configs:/gluetun/openvpn/
+      - ./data/gluetun:/gluetun
+    ports:
+      - 9117:9117 # Jackett UI
+      - 8080:8080 # qBittorrent UI
+      - 6881:6881 # qBittorrent torrenting (TCP)
+      - 6881:6881/udp # qBittorrent torrenting (UDP)
+    restart: unless-stopped
