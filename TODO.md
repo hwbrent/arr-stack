@@ -59,7 +59,6 @@ Only worth it if other people will make requests. For just me, Radarr/Sonarr dir
 
 ### Later / maybe
 - [ ] Remote access to Plex for others (port forwarding or a VPN like Tailscale)
-### Later / maybe
 - [ ] Reach Plex away from home via Tailscale (no Remote Access needed): add `100.64.0.0/10` to Plex's LAN Networks and the Tailscale address to Custom server access URLs
 - [ ] If gluetun-routed UIs don't load over Tailscale, add `100.64.0.0/10` to `FIREWALL_OUTBOUND_SUBNETS`
 
