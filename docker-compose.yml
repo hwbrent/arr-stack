@@ -56,5 +56,9 @@ services:
     volumes:
       - ./data/qbittorrent:/config
       - "/Volumes/Misc/Plex/downloads:/downloads"
+
+      # So that it picks up the preexisting data copied across from the desktop app:
+      - "/Volumes/Misc/Plex/Movies:/Volumes/Misc/Plex/Movies"
+      - "/Volumes/Misc/Plex/TV Shows:/Volumes/Misc/Plex/TV Shows"
     stop_grace_period: "10s" # optional
     restart: unless-stopped
