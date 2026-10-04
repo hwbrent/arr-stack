@@ -28,7 +28,7 @@ Useful commands:
 ### 2. Gluetun (alone)
 - [x] Add only gluetun and check logs for a successful VPN connection and healthy status
 - [ ] Replace `FIREWALL_DROP_LOCAL_LAN` with `FIREWALL_OUTBOUND_SUBNETS` (e.g. `192.168.1.0/24`) so the LAN can reach the UIs
-- [ ] **Check:** `docker run --rm --network container:gluetun alpine wget -qO- https://ifconfig.io` shows an Irish VPN IP, not your home IP
+- [x] **Check:** `docker run --rm --network container:gluetun alpine wget -qO- https://ifconfig.io` shows an Irish VPN IP, not your home IP
 - Note: this is where the ExpressVPN config is most likely to break, so get it solid first.
 
 ### 3. qBittorrent (behind gluetun)
