@@ -21,8 +21,8 @@ Useful commands:
 - [x] Add libraries (Movies, TV Shows)
 - [x] **Check:** something plays locally at `http://localhost:32400/web` on the Mac
     - `http://192.0.0.1:32400` fails because that isn't the Mac's address, so this is expected
-- [ ] In Plex Settings > Remote Access, make sure remote access is **disabled** (local-only for now)
-- [ ] **Check:** plays from another device on the home network (phone/TV) at `http://<mac-lan-ip>:32400/web`
+- [x] In Plex Settings > Remote Access, make sure remote access is **disabled** (local-only for now)
+- [x] **Check:** plays from another device on the home network (phone/TV) at `http://<mac-lan-ip>:32400/web`
 - Note: macOS containers still sit behind a VM, so Plex's local discovery/DLNA may not work. Direct access on port 32400 is enough. (OrbStack also gives containers local domains like `plex.orb.local`, handy for testing from the Mac, but other devices on your LAN need the Mac's IP and the published port.)
 
 ### 2. Gluetun (alone)
