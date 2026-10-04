@@ -104,5 +104,5 @@ services:
     env_file:
       - ./public.env
     volumes:
-      - ./data/sonarr:/config
+      - ./data/prowlarr:/config
     restart: unless-stopped
