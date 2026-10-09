@@ -20,7 +20,7 @@ services:
     # Wiki: https://jellyfin.org/docs/general/quick-start/
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
-    environment:
+    # environment:
       # - JELLYFIN_PublishedServerUrl=http://192.168.0.5 #optional
     env_file:
       - ./public.env
