@@ -25,7 +25,7 @@ services:
     env_file:
       - ./public.env
     volumes:
-      - /data/jellyfin:/config
+      - ./data/jellyfin:/config
       - "/Volumes/Misc/Plex/TV Shows:/data/tvshows"
       - "/Volumes/Misc/Plex/Movies:/data/movies"
     ports:
